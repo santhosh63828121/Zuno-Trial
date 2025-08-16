@@ -33,40 +33,42 @@ const Header = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-primary/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-md shadow-luxury border-b border-primary-light' 
+          : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <nav className="container mx-auto px-6 py-4">
+      <nav className="container mx-auto px-6 py-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-bold text-accent">
+          <Link to="/" className="font-playfair text-3xl font-bold text-primary hover:text-emerald transition-colors duration-300">
             GraphicDesignEye
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-12">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
                 <Link
                   to={item.path}
-                  className={`text-text-primary hover:text-accent transition-all duration-300 relative ${
-                    location.pathname === item.path ? 'text-accent' : ''
+                  className={`font-montserrat font-medium text-text-primary hover:text-emerald transition-all duration-300 relative uppercase tracking-wide text-sm ${
+                    location.pathname === item.path ? 'text-emerald' : ''
                   }`}
                 >
                   {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
                 </Link>
                 
                 {item.dropdown && (
-                  <div className="absolute top-full left-0 mt-2 w-48 bg-primary/95 backdrop-blur-md rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                  <div className="absolute top-full left-0 mt-4 w-56 bg-white/95 backdrop-blur-md rounded-luxury shadow-luxury-hover opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-primary-light">
                     {item.dropdown.map((dropdownItem) => (
                       <Link
                         key={dropdownItem.name}
                         to={dropdownItem.path}
-                        className="block px-4 py-2 text-text-secondary hover:text-accent hover:bg-accent/10 transition-all duration-200 first:rounded-t-lg last:rounded-b-lg"
+                        className="block px-6 py-3 font-montserrat text-text-secondary hover:text-emerald hover:bg-primary-light/30 transition-all duration-200 first:rounded-t-luxury last:rounded-b-luxury"
                       >
                         {dropdownItem.name}
                       </Link>
@@ -75,11 +77,18 @@ const Header = () => {
                 )}
               </div>
             ))}
+            
+            <Link
+              to="/contact"
+              className="btn-primary ml-4"
+            >
+              Get Started
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-text-primary"
+            className="md:hidden text-text-primary hover:text-emerald transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -89,7 +98,7 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <motion.div
-            className="md:hidden mt-4 bg-primary/95 backdrop-blur-md rounded-lg shadow-xl"
+            className="md:hidden mt-6 bg-white/95 backdrop-blur-md rounded-luxury shadow-luxury-hover border border-primary-light"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
@@ -98,18 +107,18 @@ const Header = () => {
               <div key={item.name}>
                 <Link
                   to={item.path}
-                  className="block px-4 py-3 text-text-primary hover:text-accent hover:bg-accent/10 transition-all duration-200"
+                  className="block px-6 py-4 font-montserrat text-text-primary hover:text-emerald hover:bg-primary-light/30 transition-all duration-200"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
                 {item.dropdown && (
-                  <div className="pl-6">
+                  <div className="pl-6 bg-primary-light/20">
                     {item.dropdown.map((dropdownItem) => (
                       <Link
                         key={dropdownItem.name}
                         to={dropdownItem.path}
-                        className="block px-4 py-2 text-text-secondary hover:text-accent hover:bg-accent/10 transition-all duration-200 text-sm"
+                        className="block px-6 py-3 font-montserrat text-text-secondary hover:text-emerald transition-all duration-200 text-sm"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {dropdownItem.name}
@@ -119,6 +128,15 @@ const Header = () => {
                 )}
               </div>
             ))}
+            <div className="p-6">
+              <Link
+                to="/contact"
+                className="btn-primary w-full text-center"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Get Started
+              </Link>
+            </div>
           </motion.div>
         )}
       </nav>

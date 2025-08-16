@@ -21,18 +21,18 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-text-secondary">
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-gradient-dark text-text-light">
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-4"
+            className="space-y-6"
           >
-            <h3 className="text-xl font-bold text-accent">GraphicDesignEye</h3>
-            <p className="text-sm leading-relaxed">
+            <h3 className="font-playfair text-2xl font-bold text-gold">GraphicDesignEye</h3>
+            <p className="font-montserrat text-sm leading-relaxed text-gray-300">
               Premium design and development services that bring your vision to life with cutting-edge technology and creative expertise.
             </p>
             <div className="flex space-x-4">
@@ -42,7 +42,7 @@ const Footer = () => {
                   <a
                     key={social.label}
                     href={social.url}
-                    className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-300 group"
+                    className="w-12 h-12 bg-gold/10 rounded-luxury flex items-center justify-center hover:bg-gold hover:text-primary transition-all duration-300 group border border-gold/20 hover:border-gold"
                     aria-label={social.label}
                   >
                     <Icon size={18} className="group-hover:scale-110 transition-transform duration-300" />
@@ -57,15 +57,15 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-4"
+            className="space-y-6"
           >
-            <h3 className="text-xl font-bold text-text-primary">Services</h3>
-            <ul className="space-y-2">
+            <h3 className="font-playfair text-xl font-bold text-text-light">Services</h3>
+            <ul className="space-y-3">
               {serviceLinks.map((service) => (
                 <li key={service.name}>
                   <Link
                     to={service.path}
-                    className="text-sm hover:text-accent transition-colors duration-300 hover:translate-x-1 inline-block"
+                    className="font-montserrat text-sm text-gray-300 hover:text-gold transition-colors duration-300 hover:translate-x-1 inline-block"
                   >
                     {service.name}
                   </Link>
@@ -79,14 +79,14 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-4"
+            className="space-y-6"
           >
-            <h3 className="text-xl font-bold text-text-primary">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><Link to="/" className="text-sm hover:text-accent transition-colors duration-300">Home</Link></li>
-              <li><Link to="/portfolio" className="text-sm hover:text-accent transition-colors duration-300">Portfolio</Link></li>
-              <li><Link to="/blog" className="text-sm hover:text-accent transition-colors duration-300">Blog</Link></li>
-              <li><Link to="/contact" className="text-sm hover:text-accent transition-colors duration-300">Contact</Link></li>
+            <h3 className="font-playfair text-xl font-bold text-text-light">Quick Links</h3>
+            <ul className="space-y-3">
+              <li><Link to="/" className="font-montserrat text-sm text-gray-300 hover:text-gold transition-colors duration-300">Home</Link></li>
+              <li><Link to="/portfolio" className="font-montserrat text-sm text-gray-300 hover:text-gold transition-colors duration-300">Portfolio</Link></li>
+              <li><Link to="/blog" className="font-montserrat text-sm text-gray-300 hover:text-gold transition-colors duration-300">Blog</Link></li>
+              <li><Link to="/contact" className="font-montserrat text-sm text-gray-300 hover:text-gold transition-colors duration-300">Contact</Link></li>
             </ul>
           </motion.div>
 
@@ -95,21 +95,21 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-4"
+            className="space-y-6"
           >
-            <h3 className="text-xl font-bold text-text-primary">Contact</h3>
-            <div className="space-y-3">
+            <h3 className="font-playfair text-xl font-bold text-text-light">Contact</h3>
+            <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <Mail size={16} className="text-accent" />
-                <span className="text-sm">contact@graphicdesigneye.com</span>
+                <Mail size={16} className="text-gold" />
+                <span className="font-montserrat text-sm text-gray-300">contact@graphicdesigneye.com</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone size={16} className="text-accent" />
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <Phone size={16} className="text-gold" />
+                <span className="font-montserrat text-sm text-gray-300">+1 (555) 123-4567</span>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin size={16} className="text-accent" />
-                <span className="text-sm">123 Design St, Creative City</span>
+                <MapPin size={16} className="text-gold" />
+                <span className="font-montserrat text-sm text-gray-300">123 Design St, Creative City</span>
               </div>
             </div>
           </motion.div>
@@ -119,9 +119,9 @@ const Footer = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="border-t border-gray-800 mt-8 pt-6 text-center"
+          className="border-t border-gold/20 mt-12 pt-8 text-center"
         >
-          <p className="text-sm">&copy; 2025 GraphicDesignEye. All rights reserved.</p>
+          <p className="font-montserrat text-sm text-gray-400">&copy; 2025 GraphicDesignEye. All rights reserved.</p>
         </motion.div>
       </div>
     </footer>

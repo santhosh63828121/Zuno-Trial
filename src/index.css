@@ -1,3 +1,81 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import '@fontsource/playfair-display/400.css';
+@import '@fontsource/playfair-display/600.css';
+@import '@fontsource/playfair-display/700.css';
+@import '@fontsource/montserrat/300.css';
+@import '@fontsource/montserrat/400.css';
+@import '@fontsource/montserrat/500.css';
+@import '@fontsource/montserrat/600.css';
+@import '@fontsource/montserrat/700.css';
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333333;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-emerald text-white px-8 py-4 rounded-luxury font-montserrat font-medium 
+           hover:bg-emerald/90 hover:shadow-gold-glow transition-all duration-300 
+           border-2 border-transparent hover:border-gold animate-breathe;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent text-emerald px-8 py-4 rounded-luxury font-montserrat font-medium 
+           border-2 border-gold hover:bg-gold hover:text-white transition-all duration-300;
+  }
+  
+  .luxury-card {
+    @apply bg-white rounded-luxury shadow-luxury hover:shadow-luxury-hover 
+           transition-all duration-500 hover:-translate-y-2;
+  }
+  
+  .section-title {
+    @apply font-playfair text-4xl md:text-5xl font-bold text-primary mb-6;
+  }
+  
+  .hero-title {
+    @apply font-playfair text-5xl md:text-7xl font-bold text-primary leading-tight;
+  }
+  
+  .body-text {
+    @apply font-montserrat text-lg text-text-secondary leading-relaxed;
+  }
+  
+  .caption-text {
+    @apply font-montserrat text-sm uppercase tracking-wider text-gold font-medium;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #D4AF37, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-luxury {
+    background: linear-gradient(135deg, #E6F0F7 0%, #FFFFFF 100%);
+  }
+  
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, #0D2341 0%, #1A1A1A 100%);
+  }
+}
